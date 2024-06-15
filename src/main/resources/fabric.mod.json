@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "daggers",
+	"version": "${version}",
+	"name": "Daggers",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/daggers/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"hotsuop.daggers.Daggers"
+		],
+		"client": [
+			"hotsuop.daggers.DaggersClient"
+		]
+	},
+	"mixins": [
+		"daggers.mixins.json",
+		{
+			"config": "daggers.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.19.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/hotsuop/daggers/items/DiamondDagger.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1718476698853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718476727103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import net.minecraft.item.ToolMaterials;\r\n \r\n public class DiamondDagger extends SwordItem {\r\n \r\n-    private static final double ATTACK_DAMAGE = 3.0; // Should be int, not double\r\n+    private static final double ATTACK_DAMAGE = 5.5; // Should be int, not double\r\n     private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     private static final int MAX_COUNT = 1;\r\n \r\n     public DiamondDagger(Item.Settings settings) {\r\n"
+                },
+                {
+                    "date": 1718477046005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import net.minecraft.item.ToolMaterials;\r\n \r\n public class DiamondDagger extends SwordItem {\r\n \r\n-    private static final double ATTACK_DAMAGE = 5.5; // Should be int, not double\r\n+    private static final double ATTACK_DAMAGE = 5.0; // Should be int, not double\r\n     private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     private static final int MAX_COUNT = 1;\r\n \r\n     public DiamondDagger(Item.Settings settings) {\r\n"
+                }
+            ],
+            "date": 1718476698853,
+            "name": "Commit-0",
+            "content": "package hotsuop.daggers.items;\r\n\r\nimport net.minecraft.item.Item;\r\nimport net.minecraft.item.SwordItem;\r\nimport net.minecraft.item.ToolMaterials;\r\n\r\npublic class DiamondDagger extends SwordItem {\r\n\r\n    private static final double ATTACK_DAMAGE = 3.0; // Should be int, not double\r\n    private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n    private static final int MAX_COUNT = 1;\r\n\r\n    public DiamondDagger(Item.Settings settings) {\r\n        super(ToolMaterials.STONE, (int) ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n    }\r\n}\r\n"
+        }
+    ]
+}

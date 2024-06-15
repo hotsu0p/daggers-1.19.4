@@ -1,0 +1,74 @@
+{
+    "sourceFile": "src/main/java/hotsuop/daggers/Daggers.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1718472144019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718472227972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n import net.fabricmc.api.ModInitializer;\n import net.minecraft.item.Item;\n import net.minecraft.item.SwordItem;\n-\n+import hotsuop.daggers.items.CustomDaggerItem;\n import org.slf4j.Logger;\n import org.slf4j.LoggerFactory;\n \n public class Daggers implements ModInitializer {\n"
+                },
+                {
+                    "date": 1718472373517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,18 +2,20 @@\n \n import net.fabricmc.api.ModInitializer;\n import net.minecraft.item.Item;\n import net.minecraft.item.SwordItem;\n-import hotsuop.daggers.items.CustomDaggerItem;\n+\n+import hotsuop.daggers.items.CustomItem;\n+\n import org.slf4j.Logger;\n import org.slf4j.LoggerFactory;\n \n public class Daggers implements ModInitializer {\n \t// This logger is used to write text to the console and the log file.\n \t// It is considered best practice to use your mod id as the logger's name.\n \t// That way, it's clear which mod wrote info, warnings, and errors.\n     public static final Logger LOGGER = LoggerFactory.getLogger(\"daggers\");\n-\tpublic static final Item MY_DAGGER = new CustomDaggerItem(new Item.Properties().tab(CreativeModeTabs.COMBAT));\n+ public static final CustomItem CUSTOM_ITEM = new CustomItem(new Item.Settings());\n \t@Override\n \tpublic void onInitialize() {\n \t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n \t\t// However, some things (like resources) may still be uninitialized.\n"
+                },
+                {
+                    "date": 1718472537007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n \n import net.fabricmc.api.ModInitializer;\n import net.minecraft.item.Item;\n import net.minecraft.item.SwordItem;\n-\n+import net.minecraft.registry.Registries;\n+import net.minecraft.registry.Registry;\n+import net.minecraft.util.Identifier;\n import hotsuop.daggers.items.CustomItem;\n \n import org.slf4j.Logger;\n import org.slf4j.LoggerFactory;\n@@ -12,10 +14,13 @@\n public class Daggers implements ModInitializer {\n \t// This logger is used to write text to the console and the log file.\n \t// It is considered best practice to use your mod id as the logger's name.\n \t// That way, it's clear which mod wrote info, warnings, and errors.\n+\tpublic static final Item CUSTOM_ITEM =\n+      Registry.register(Registries.ITEM, new Identifier(\"tutorial\", \"custom_item\"),\n+        new Item(new Item.Settings()));\n     public static final Logger LOGGER = LoggerFactory.getLogger(\"daggers\");\n- public static final CustomItem CUSTOM_ITEM = new CustomItem(new Item.Settings());\n+\n \t@Override\n \tpublic void onInitialize() {\n \t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n \t\t// However, some things (like resources) may still be uninitialized.\n"
+                },
+                {
+                    "date": 1718472656414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,18 +14,18 @@\n public class Daggers implements ModInitializer {\n \t// This logger is used to write text to the console and the log file.\n \t// It is considered best practice to use your mod id as the logger's name.\n \t// That way, it's clear which mod wrote info, warnings, and errors.\n-\tpublic static final Item CUSTOM_ITEM =\n-      Registry.register(Registries.ITEM, new Identifier(\"tutorial\", \"custom_item\"),\n-        new Item(new Item.Settings()));\n+\n+    public static final Item CUSTOM_ITEM = new Item(new Item.Settings());\n+ \n     public static final Logger LOGGER = LoggerFactory.getLogger(\"daggers\");\n \n \t@Override\n \tpublic void onInitialize() {\n \t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n \t\t// However, some things (like resources) may still be uninitialized.\n \t\t// Proceed with mild caution.\n-\n+\t\tRegistry.register(Registries.ITEM, new Identifier(\"tutorial\", \"custom_item\"), CUSTOM_ITEM)\n \t\tLOGGER.info(\"Hello Fabric world!\");\n \t}\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1718472664380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,8 @@\n \tpublic void onInitialize() {\n \t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n \t\t// However, some things (like resources) may still be uninitialized.\n \t\t// Proceed with mild caution.\n-\t\tRegistry.register(Registries.ITEM, new Identifier(\"tutorial\", \"custom_item\"), CUSTOM_ITEM)\n+\t\tRegistry.register(Registries.ITEM, new Identifier(\"tutorial\", \"custom_item\"), CUSTOM_ITEM);\n \t\tLOGGER.info(\"Hello Fabric world!\");\n \t}\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1718472709000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,8 @@\n \tpublic void onInitialize() {\n \t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n \t\t// However, some things (like resources) may still be uninitialized.\n \t\t// Proceed with mild caution.\n-\t\tRegistry.register(Registries.ITEM, new Identifier(\"tutorial\", \"custom_item\"), CUSTOM_ITEM);\n+\t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"wooden_dager\"), CUSTOM_ITEM);\n \t\tLOGGER.info(\"Hello Fabric world!\");\n \t}\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1718473128500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n \t// This logger is used to write text to the console and the log file.\n \t// It is considered best practice to use your mod id as the logger's name.\n \t// That way, it's clear which mod wrote info, warnings, and errors.\n \n-    public static final Item CUSTOM_ITEM = new Item(new Item.Settings());\n+    public static final Item CUSTOM_ITEM = new CustomItem(new Item.Settings());\n  \n     public static final Logger LOGGER = LoggerFactory.getLogger(\"daggers\");\n \n \t@Override\n"
+                },
+                {
+                    "date": 1718473272872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,8 @@\n \tpublic void onInitialize() {\n \t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n \t\t// However, some things (like resources) may still be uninitialized.\n \t\t// Proceed with mild caution.\n-\t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"wooden_dager\"), CUSTOM_ITEM);\n+\t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"wooden_dagger\"), CUSTOM_ITEM);\n \t\tLOGGER.info(\"Hello Fabric world!\");\n \t}\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1718473333916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,17 +15,17 @@\n \t// This logger is used to write text to the console and the log file.\n \t// It is considered best practice to use your mod id as the logger's name.\n \t// That way, it's clear which mod wrote info, warnings, and errors.\n \n-    public static final Item CUSTOM_ITEM = new CustomItem(new Item.Settings());\n+    public static final Item WOODEN_DAGGER = new CustomItem(new Item.Settings());\n  \n     public static final Logger LOGGER = LoggerFactory.getLogger(\"daggers\");\n \n \t@Override\n \tpublic void onInitialize() {\n \t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n \t\t// However, some things (like resources) may still be uninitialized.\n \t\t// Proceed with mild caution.\n-\t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"wooden_dagger\"), CUSTOM_ITEM);\n+\t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"wooden_dagger\"), WOODEN_DAGGER);\n \t\tLOGGER.info(\"Hello Fabric world!\");\n \t}\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1718473357261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n \t// This logger is used to write text to the console and the log file.\n \t// It is considered best practice to use your mod id as the logger's name.\n \t// That way, it's clear which mod wrote info, warnings, and errors.\n \n-    public static final Item WOODEN_DAGGER = new CustomItem(new Item.Settings());\n+    public static final Item WOODEN_DAGGER = new Woodendagger(new Item.Settings());\n  \n     public static final Logger LOGGER = LoggerFactory.getLogger(\"daggers\");\n \n \t@Override\n"
+                },
+                {
+                    "date": 1718473366302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,11 @@\n import net.minecraft.item.SwordItem;\n import net.minecraft.registry.Registries;\n import net.minecraft.registry.Registry;\n import net.minecraft.util.Identifier;\n-import hotsuop.daggers.items.CustomItem;\n-\n import org.slf4j.Logger;\n import org.slf4j.LoggerFactory;\n+import hotsuop.daggers.items.Woodendagger;\n \n public class Daggers implements ModInitializer {\n \t// This logger is used to write text to the console and the log file.\n \t// It is considered best practice to use your mod id as the logger's name.\n"
+                },
+                {
+                    "date": 1718474290754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,16 +7,19 @@\n import net.minecraft.registry.Registry;\n import net.minecraft.util.Identifier;\n import org.slf4j.Logger;\n import org.slf4j.LoggerFactory;\n+\n+import hotsuop.daggers.items.IronDagger;\n import hotsuop.daggers.items.Woodendagger;\n \n public class Daggers implements ModInitializer {\n \t// This logger is used to write text to the console and the log file.\n \t// It is considered best practice to use your mod id as the logger's name.\n \t// That way, it's clear which mod wrote info, warnings, and errors.\n \n     public static final Item WOODEN_DAGGER = new Woodendagger(new Item.Settings());\n+\tpublic static final Item IRON_DAGGER = new IronDagger(new Item.Settings());\n  \n     public static final Logger LOGGER = LoggerFactory.getLogger(\"daggers\");\n \n \t@Override\n@@ -24,7 +27,8 @@\n \t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n \t\t// However, some things (like resources) may still be uninitialized.\n \t\t// Proceed with mild caution.\n \t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"wooden_dagger\"), WOODEN_DAGGER);\n+\t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"iron_dagger\"), IronDagger);\n \t\tLOGGER.info(\"Hello Fabric world!\");\n \t}\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1718475694008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n \t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n \t\t// However, some things (like resources) may still be uninitialized.\n \t\t// Proceed with mild caution.\n \t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"wooden_dagger\"), WOODEN_DAGGER);\n+\t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"stone_dagger\"), WOODEN_DAGGER);\n \t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"iron_dagger\"), IRON_DAGGER);\n \t\tLOGGER.info(\"Hello Fabric world!\");\n \t}\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1718475703407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n \t\t// However, some things (like resources) may still be uninitialized.\n \t\t// Proceed with mild caution.\n \t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"wooden_dagger\"), WOODEN_DAGGER);\n-\t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"stone_dagger\"), WOODEN_DAGGER);\n+\t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"stone_dagger\"), STONE_DAGGER);\n \t\tRegistry.register(Registries.ITEM, new Identifier(\"daggers\", \"iron_dagger\"), IRON_DAGGER);\n \t\tLOGGER.info(\"Hello Fabric world!\");\n \t}\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1718472144019,
+            "name": "Commit-0",
+            "content": "package hotsuop.daggers;\n\nimport net.fabricmc.api.ModInitializer;\nimport net.minecraft.item.Item;\nimport net.minecraft.item.SwordItem;\n\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\npublic class Daggers implements ModInitializer {\n\t// This logger is used to write text to the console and the log file.\n\t// It is considered best practice to use your mod id as the logger's name.\n\t// That way, it's clear which mod wrote info, warnings, and errors.\n    public static final Logger LOGGER = LoggerFactory.getLogger(\"daggers\");\n\tpublic static final Item MY_DAGGER = new CustomDaggerItem(new Item.Properties().tab(CreativeModeTabs.COMBAT));\n\t@Override\n\tpublic void onInitialize() {\n\t\t// This code runs as soon as Minecraft is in a mod-load-ready state.\n\t\t// However, some things (like resources) may still be uninitialized.\n\t\t// Proceed with mild caution.\n\n\t\tLOGGER.info(\"Hello Fabric world!\");\n\t}\n}"
+        }
+    ]
+}

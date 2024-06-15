@@ -1,0 +1,19 @@
+{
+  "item.daggers.wooden_dagger" : "Wooden Dagger",
+  "item.daggers.stone_dagger" : "Stone Dagger",
+  "item.daggers.iron_dagger" : "Iron Dagger",
+  "item.daggers.gold_dagger" : "Gold Dagger",
+  "item.daggers.diamond_dagger" : "Diamond Dagger",
+  "item.daggers.netherite_dagger" : "Netherite Dagger",
+
+  "entity.daggers.thrown_wooden_dagger": "Wooden Dagger",
+  "entity.daggers.thrown_stone_dagger" : "Stone Dagger",
+  "entity.daggers.thrown_iron_dagger" : "Iron Dagger",
+  "entity.daggers.thrown_gold_dagger" : "Gold Dagger",
+  "entity.daggers.thrown_diamond_dagger" : "Diamond Dagger",
+  "entity.daggers.thrown_netherite_dagger" : "Netherite Dagger",
+
+  "daggers.death.attack.backstab":"%1$s was backstabbed by an unknown assailant.",
+  "daggers.death.attack.backstab.creature":"%1$s was backstabbed by %2$s.",
+  "daggers.death.attack.backstab.creature.item":"%1$s was backstabbed by %2$s, using %3$s."
+}

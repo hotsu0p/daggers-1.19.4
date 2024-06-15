@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/main/java/hotsuop/daggers/entities/t.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1718473731065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1718473731065,
+            "name": "Commit-0",
+            "content": "package hotsuop.daggers.entities;\r\n\r\nimport net.minecraft.entity.EntityType;\r\nimport net.minecraft.entity.LivingEntity;\r\nimport net.minecraft.entity.damage.DamageSource;\r\nimport net.minecraft.entity.player.PlayerEntity;\r\nimport net.minecraft.entity.projectile.thrown.ThrownItemEntity;\r\nimport net.minecraft.item.Item;\r\nimport net.minecraft.network.Packet;\r\nimport net.minecraft.util.hit.EntityHitResult;\r\nimport net.minecraft.util.hit.HitResult;\r\nimport net.minecraft.world.World;\r\nimport hotsuop.daggers.items.Woodendagger;\r\n\r\npublic class CustomThrowableEntity extends ThrownItemEntity {\r\n\r\n    public CustomThrowableEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {\r\n        super(entityType, world);\r\n    }\r\n\r\n    public CustomThrowableEntity(World world, LivingEntity owner) {\r\n        super(EntityType.SNOWBALL, owner, world); // Use an existing entity type for simplicity\r\n    }\r\n\r\n    @Override\r\n    protected Item getDefaultItem() {\r\n        return new Woodendagger(new Item.Settings()); // Replace with your actual item\r\n    }\r\n\r\n    @Override\r\n    protected void onCollision(HitResult hitResult) {\r\n        super.onCollision(hitResult);\r\n        if (!this.world.isClient) {\r\n            this.world.sendEntityStatus(this, (byte) 3);\r\n            this.remove(RemovalReason.DISCARDED);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    protected void onEntityHit(EntityHitResult entityHitResult) {\r\n        super.onEntityHit(entityHitResult);\r\n        if (entityHitResult.getEntity() instanceof LivingEntity) {\r\n            entityHitResult.getEntity().damage(DamageSource.thrownProjectile(this, this.getOwner()), 8.0F); // Adjust damage as needed\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public Packet<?> createSpawnPacket() {\r\n        return super.createSpawnPacket();\r\n    }\r\n}\r\n"
+        }
+    ]
+}

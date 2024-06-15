@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/hotsuop/daggers/items/Woodendagger.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1718473712542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718474163688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,36 +1,16 @@\n package hotsuop.daggers.items;\r\n \r\n-import hotsuop.daggers.entities.CustomThrowableEntity;\r\n-import net.minecraft.entity.player.PlayerEntity;\r\n import net.minecraft.item.Item;\r\n-import net.minecraft.item.ItemStack;\r\n import net.minecraft.item.SwordItem;\r\n import net.minecraft.item.ToolMaterials;\r\n-import net.minecraft.util.Hand;\r\n-import net.minecraft.util.TypedActionResult;\r\n-import net.minecraft.world.World;\r\n \r\n public class Woodendagger extends SwordItem {\r\n \r\n-    private static final int ATTACK_DAMAGE = 2;\r\n-    private static final float ATTACK_SPEED = -0.4F;\r\n+    private static final int ATTACK_DAMAGE = 2; // Should be int, not double\r\n+    private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     private static final int MAX_COUNT = 1;\r\n \r\n     public Woodendagger(Item.Settings settings) {\r\n         super(ToolMaterials.WOOD, ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n     }\r\n-\r\n-    @Override\r\n-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {\r\n-        ItemStack itemStack = user.getStackInHand(hand);\r\n-        if (!world.isClient) {\r\n-            CustomThrowableEntity throwableEntity = new CustomThrowableEntity(world, user);\r\n-            throwableEntity.setItem(itemStack);\r\n-            throwableEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);\r\n-            world.spawnEntity(throwableEntity);\r\n-\r\n-            itemStack.decrement(1); // Decrease item stack by 1 when thrown\r\n-        }\r\n-        return TypedActionResult.success(itemStack, world.isClient());\r\n-    }\r\n }\r\n"
+                },
+                {
+                    "date": 1718474295733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n import net.minecraft.item.ToolMaterials;\r\n \r\n public class Woodendagger extends SwordItem {\r\n \r\n-    private static final int ATTACK_DAMAGE = 2; // Should be int, not double\r\n+    private static final double ATTACK_DAMAGE = 1.5; // Should be int, not double\r\n     private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     private static final int MAX_COUNT = 1;\r\n \r\n     public Woodendagger(Item.Settings settings) {\r\n-        super(ToolMaterials.WOOD, ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n+        super(ToolMaterials.WOOD, (int) ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n     }\r\n }\r\n"
+                }
+            ],
+            "date": 1718473712542,
+            "name": "Commit-0",
+            "content": "package hotsuop.daggers.items;\r\n\r\nimport hotsuop.daggers.entities.CustomThrowableEntity;\r\nimport net.minecraft.entity.player.PlayerEntity;\r\nimport net.minecraft.item.Item;\r\nimport net.minecraft.item.ItemStack;\r\nimport net.minecraft.item.SwordItem;\r\nimport net.minecraft.item.ToolMaterials;\r\nimport net.minecraft.util.Hand;\r\nimport net.minecraft.util.TypedActionResult;\r\nimport net.minecraft.world.World;\r\n\r\npublic class Woodendagger extends SwordItem {\r\n\r\n    private static final int ATTACK_DAMAGE = 2;\r\n    private static final float ATTACK_SPEED = -0.4F;\r\n    private static final int MAX_COUNT = 1;\r\n\r\n    public Woodendagger(Item.Settings settings) {\r\n        super(ToolMaterials.WOOD, ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n    }\r\n\r\n    @Override\r\n    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {\r\n        ItemStack itemStack = user.getStackInHand(hand);\r\n        if (!world.isClient) {\r\n            CustomThrowableEntity throwableEntity = new CustomThrowableEntity(world, user);\r\n            throwableEntity.setItem(itemStack);\r\n            throwableEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);\r\n            world.spawnEntity(throwableEntity);\r\n\r\n            itemStack.decrement(1); // Decrease item stack by 1 when thrown\r\n        }\r\n        return TypedActionResult.success(itemStack, world.isClient());\r\n    }\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/main/resources/assets/daggers/models/item/iron_dagger.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1718473261225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1718473261225,
+            "name": "Commit-0",
+            "content": "{\r\n  \"parent\": \"item/generated\",\r\n  \"textures\": {\r\n    \"layer0\": \"daggers:item/iron_dagger\"\r\n  },\r\n  \"overrides\": [\r\n    {\"predicate\": {\"poisoned\": 1},\r\n      \"model\":\"daggers:item/iron_dagger_poisoned\"}\r\n  ]\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "sourceFile": "src/main/java/hotsuop/daggers/items/IronDagger.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1718474190389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718474231312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n import net.minecraft.item.ToolMaterials;\r\n \r\n public class IronDagger extends SwordItem {\r\n \r\n-    private static final int ATTACK_DAMAGE = 2; // Should be int, not double\r\n+    private static final double ATTACK_DAMAGE = 1.5; // Should be int, not double\r\n     private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     private static final int MAX_COUNT = 1;\r\n \r\n-    public IronDagger(Item.Settings settings) {\r\n-        super(ToolMaterials.IRON, ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n+    public Woodendagger(Item.Settings settings) {\r\n+        super(ToolMaterials.WOOD, (int) ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1718474238379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,8 @@\n     private static final double ATTACK_DAMAGE = 1.5; // Should be int, not double\r\n     private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     private static final int MAX_COUNT = 1;\r\n \r\n-    public Woodendagger(Item.Settings settings) {\r\n+    public IronDagger(Item.Settings settings) {\r\n         super(ToolMaterials.WOOD, (int) ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1718474244266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import net.minecraft.item.ToolMaterials;\r\n \r\n public class IronDagger extends SwordItem {\r\n \r\n-    private static final double ATTACK_DAMAGE = 1.5; // Should be int, not double\r\n+    private static final double ATTACK_DAMAGE = 3.5; // Should be int, not double\r\n     private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     private static final int MAX_COUNT = 1;\r\n \r\n     public IronDagger(Item.Settings settings) {\r\n"
+                },
+                {
+                    "date": 1718475657892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import net.minecraft.item.ToolMaterials;\r\n \r\n public class IronDagger extends SwordItem {\r\n \r\n-    private static final double ATTACK_DAMAGE = 3.5; // Should be int, not double\r\n+    private static final double ATTACK_DAMAGE = 4.5; // Should be int, not double\r\n     private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     private static final int MAX_COUNT = 1;\r\n \r\n     public IronDagger(Item.Settings settings) {\r\n"
+                },
+                {
+                    "date": 1718476214057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \r\n     private static final double ATTACK_DAMAGE = 4.5; // Should be int, not double\r\n     private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     private static final int MAX_COUNT = 1;\r\n-\r\n+    \r\n     public IronDagger(Item.Settings settings) {\r\n         super(ToolMaterials.WOOD, (int) ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1718476281349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \r\n     private static final double ATTACK_DAMAGE = 4.5; // Should be int, not double\r\n     private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     private static final int MAX_COUNT = 1;\r\n-    \r\n+        \r\n     public IronDagger(Item.Settings settings) {\r\n         super(ToolMaterials.WOOD, (int) ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1718476296874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,49 @@\n package hotsuop.daggers.items;\r\n \r\n import net.minecraft.item.Item;\r\n+import net.minecraft.item.Items;\r\n import net.minecraft.item.SwordItem;\r\n-import net.minecraft.item.ToolMaterials;\r\n+import net.minecraft.item.ToolMaterial;\r\n+import net.minecraft.recipe.Ingredient;\r\n \r\n public class IronDagger extends SwordItem {\r\n \r\n-    private static final double ATTACK_DAMAGE = 4.5; // Should be int, not double\r\n-    private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n+    // Custom tool material with increased durability\r\n+    private static final ToolMaterial CUSTOM_MATERIAL = new ToolMaterial() {\r\n+        @Override\r\n+        public int getDurability() {\r\n+            return 500; // Set your desired durability here\r\n+        }\r\n+\r\n+        @Override\r\n+        public float getMiningSpeedMultiplier() {\r\n+            return 1.0F;\r\n+        }\r\n+\r\n+        @Override\r\n+        public float getAttackDamage() {\r\n+            return 4.5F;\r\n+        }\r\n+\r\n+        @Override\r\n+        public int getMiningLevel() {\r\n+            return 0;\r\n+        }\r\n+\r\n+        @Override\r\n+        public int getEnchantability() {\r\n+            return 15;\r\n+        }\r\n+\r\n+        @Override\r\n+        public Ingredient getRepairIngredient() {\r\n+            return Ingredient.ofItems(Items.IRON_INGOT); // Replace with the repair item\r\n+        }\r\n+    };\r\n+\r\n     private static final int MAX_COUNT = 1;\r\n-        \r\n+\r\n     public IronDagger(Item.Settings settings) {\r\n-        super(ToolMaterials.WOOD, (int) ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n+        super(CUSTOM_MATERIAL, (int) ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1718476308731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n import net.minecraft.item.ToolMaterial;\r\n import net.minecraft.recipe.Ingredient;\r\n \r\n public class IronDagger extends SwordItem {\r\n-\r\n+    private static final double ATTACK_DAMAGE = 4.5; // Should be int, not double\r\n+private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     // Custom tool material with increased durability\r\n     private static final ToolMaterial CUSTOM_MATERIAL = new ToolMaterial() {\r\n         @Override\r\n         public int getDurability() {\r\n"
+                },
+                {
+                    "date": 1718476502947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     // Custom tool material with increased durability\r\n     private static final ToolMaterial CUSTOM_MATERIAL = new ToolMaterial() {\r\n         @Override\r\n         public int getDurability() {\r\n-            return 500; // Set your desired durability here\r\n+            return 250; // Set your desired durability here\r\n         }\r\n \r\n         @Override\r\n         public float getMiningSpeedMultiplier() {\r\n"
+                },
+                {
+                    "date": 1718476512842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n public class IronDagger extends SwordItem {\r\n     private static final double ATTACK_DAMAGE = 4.5; // Should be int, not double\r\n private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     // Custom tool material with increased durability\r\n-    private static final ToolMaterial CUSTOM_MATERIAL = new ToolMaterial() {\r\n+    private static final ToolMaterial CUSTOM_IRON = new ToolMaterial() {\r\n         @Override\r\n         public int getDurability() {\r\n             return 250; // Set your desired durability here\r\n         }\r\n@@ -44,7 +44,7 @@\n \r\n     private static final int MAX_COUNT = 1;\r\n \r\n     public IronDagger(Item.Settings settings) {\r\n-        super(CUSTOM_MATERIAL, (int) ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n+        super(CUSTOM_IRON, (int) ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1718477106319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import net.minecraft.item.ToolMaterial;\r\n import net.minecraft.recipe.Ingredient;\r\n \r\n public class IronDagger extends SwordItem {\r\n-    private static final double ATTACK_DAMAGE = 4.5; // Should be int, not double\r\n+    private static final double ATTACK_DAMAGE = 3.5; // Should be int, not double\r\n private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n     // Custom tool material with increased durability\r\n     private static final ToolMaterial CUSTOM_IRON = new ToolMaterial() {\r\n         @Override\r\n"
+                }
+            ],
+            "date": 1718474190389,
+            "name": "Commit-0",
+            "content": "package hotsuop.daggers.items;\r\n\r\nimport net.minecraft.item.Item;\r\nimport net.minecraft.item.SwordItem;\r\nimport net.minecraft.item.ToolMaterials;\r\n\r\npublic class IronDagger extends SwordItem {\r\n\r\n    private static final int ATTACK_DAMAGE = 2; // Should be int, not double\r\n    private static final float ATTACK_SPEED = -.4F; // Typical value for swords\r\n    private static final int MAX_COUNT = 1;\r\n\r\n    public IronDagger(Item.Settings settings) {\r\n        super(ToolMaterials.IRON, ATTACK_DAMAGE, ATTACK_SPEED, settings.maxCount(MAX_COUNT));\r\n    }\r\n}\r\n"
+        }
+    ]
+}

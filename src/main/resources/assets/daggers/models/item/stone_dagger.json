@@ -1,0 +1,10 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "daggers:item/stone_dagger"
+  },
+  "overrides": [
+    {"predicate": {"poisoned": 1},
+      "model":"daggers:item/stone_dagger_poisoned"}
+  ]
+}

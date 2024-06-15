@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/main/resources/assets/daggers/lang/en_us.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1718473261248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1718473261248,
+            "name": "Commit-0",
+            "content": "{\r\n  \"item.daggers.wooden_dagger\" : \"Wooden Dagger\",\r\n  \"item.daggers.stone_dagger\" : \"Stone Dagger\",\r\n  \"item.daggers.iron_dagger\" : \"Iron Dagger\",\r\n  \"item.daggers.gold_dagger\" : \"Gold Dagger\",\r\n  \"item.daggers.diamond_dagger\" : \"Diamond Dagger\",\r\n  \"item.daggers.netherite_dagger\" : \"Netherite Dagger\",\r\n\r\n  \"entity.daggers.thrown_wooden_dagger\": \"Wooden Dagger\",\r\n  \"entity.daggers.thrown_stone_dagger\" : \"Stone Dagger\",\r\n  \"entity.daggers.thrown_iron_dagger\" : \"Iron Dagger\",\r\n  \"entity.daggers.thrown_gold_dagger\" : \"Gold Dagger\",\r\n  \"entity.daggers.thrown_diamond_dagger\" : \"Diamond Dagger\",\r\n  \"entity.daggers.thrown_netherite_dagger\" : \"Netherite Dagger\",\r\n\r\n  \"daggers.death.attack.backstab\":\"%1$s was backstabbed by an unknown assailant.\",\r\n  \"daggers.death.attack.backstab.creature\":\"%1$s was backstabbed by %2$s.\",\r\n  \"daggers.death.attack.backstab.creature.item\":\"%1$s was backstabbed by %2$s, using %3$s.\"\r\n}\r\n"
+        }
+    ]
+}

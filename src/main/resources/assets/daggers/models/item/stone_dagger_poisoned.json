@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "daggers:item/stone_dagger",
+    "layer1": "daggers:item/poison_blob"
+  }
+}

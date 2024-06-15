@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main/java/hotsuop/daggers/items/CustomDaggerItem.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1718472282593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1718472292511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,7 @@\n-package com.yourmodid.items;\r\n+package hotsuop.daggers.items;\r\n \r\n-import net.minecraft.world.item.Item;\r\n-import net.minecraft.world.item.Tier;\r\n-import net.minecraft.world.item.crafting.Ingredient;\r\n import net.minecraft.item.Items;\r\n-import net.minecraft.world.item.CreativeModeTabs;\r\n \r\n public class CustomDaggerItem extends Items {\r\n \r\n     // Constructor for your custom dagger\r\n"
+                },
+                {
+                    "date": 1718472336576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,6 @@\n-package hotsuop.daggers.items;\r\n-\r\n-import net.minecraft.item.Items;\r\n-\r\n-public class CustomDaggerItem extends Items {\r\n-\r\n-    // Constructor for your custom dagger\r\n-    public CustomDaggerItem() {\r\n-        super(new Item.Properties().tab(CreativeModeTabs.COMBAT)); // Sets the item group to Combat\r\n+public class CustomItem extends Item {\r\n+ \r\n+    public CustomItem(Settings settings) {\r\n+        super(settings);\r\n     }\r\n-}\r\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1718472282593,
+            "name": "Commit-0",
+            "content": "package com.yourmodid.items;\r\n\r\nimport net.minecraft.world.item.Item;\r\nimport net.minecraft.world.item.Tier;\r\nimport net.minecraft.world.item.crafting.Ingredient;\r\nimport net.minecraft.item.Items;\r\nimport net.minecraft.world.item.CreativeModeTabs;\r\n\r\npublic class CustomDaggerItem extends Items {\r\n\r\n    // Constructor for your custom dagger\r\n    public CustomDaggerItem() {\r\n        super(new Item.Properties().tab(CreativeModeTabs.COMBAT)); // Sets the item group to Combat\r\n    }\r\n}\r\n"
+        }
+    ]
+}
