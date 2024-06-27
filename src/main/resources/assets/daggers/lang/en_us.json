@@ -5,7 +5,7 @@
   "item.daggers.gold_dagger" : "Gold Dagger",
   "item.daggers.diamond_dagger" : "Diamond Dagger",
   "item.daggers.netherite_dagger" : "Netherite Dagger",
-
+ " comment" : "you dont need to translate below this for - its for later" 
   "entity.daggers.thrown_wooden_dagger": "Wooden Dagger",
   "entity.daggers.thrown_stone_dagger" : "Stone Dagger",
   "entity.daggers.thrown_iron_dagger" : "Iron Dagger",
